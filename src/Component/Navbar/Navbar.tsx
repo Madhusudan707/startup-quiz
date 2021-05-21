@@ -1,4 +1,4 @@
-import { useMenuToggle } from '../hooks'
+import { useMenuToggle } from '../../hooks'
 import './navbar.css'
 
 export const Navbar = () => {
