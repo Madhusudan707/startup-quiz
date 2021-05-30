@@ -11,10 +11,11 @@ import { ContextType, QuizProviderProp,Quizes } from "./quiz.types";
 
 
 
-export const QuizContext = createContext<ContextType | null>(null);
+export const QuizContext = createContext({} as ContextType);
 
 export const QuizProvider = ({ children }: QuizProviderProp): JSX.Element => {
   const [state, dispatch] = useReducer(quizReducer, initialState);
+  
   const [quizes, setQuizes] = useState<[] | null>(null);
   const [quizID, setQuizID] = useState<string | null> (null);
   const [newQuiz, setNewQuiz] = useState<[] |null> (null);
