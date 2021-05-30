@@ -1,6 +1,6 @@
 import {useEffect } from "react";
 import { useQuiz } from "../contexts";
-import {usePathName} from './'
+import {usePathName} from '.'
 
 export const useExtractQuiz = () => {
   const { questionAnswer, setQuestionAnswer,setAllResponse,allResponse } = useQuiz();
