@@ -7,16 +7,20 @@ import {
 } from "react";
 import { quizReducer, initialState } from "../reducers/quiz";
 import axios from "axios";
-export const QuizContext = createContext();
+import { ContextType, QuizProviderProp,Quizes } from "./quiz.types";
 
-export const QuizProvider = ({ children }) => {
+
+
+export const QuizContext = createContext<ContextType | null>(null);
+
+export const QuizProvider = ({ children }: QuizProviderProp): JSX.Element => {
   const [state, dispatch] = useReducer(quizReducer, initialState);
-  const [quizes, setQuizes] = useState();
-  const [quizID, setQuizID] = useState();
-  const [newQuiz, setNewQuiz] = useState([]);
-  const [questionAnswer, setQuestionAnswer] = useState([]);
-  const [loader, setLoader] = useState(true);
-  const [allResponse,setAllResponse] = useState([])
+  const [quizes, setQuizes] = useState<[] | null>(null);
+  const [quizID, setQuizID] = useState<string | null> (null);
+  const [newQuiz, setNewQuiz] = useState<[] |null> (null);
+  const [questionAnswer, setQuestionAnswer] = useState<[] | null>(null);
+  const [loader, setLoader] = useState<boolean | true>(true);
+  const [allResponse, setAllResponse] = useState<[] | null>(null);
 
   useEffect(() => {
     (async () => {
@@ -28,6 +32,8 @@ export const QuizProvider = ({ children }) => {
         setLoader(true);
       }
     })();
+
+   
   }, []);
 
   return (
@@ -45,7 +51,8 @@ export const QuizProvider = ({ children }) => {
         setQuizID,
         questionAnswer,
         setQuestionAnswer,
-        allResponse,setAllResponse
+        allResponse,
+        setAllResponse,
       }}
     >
       {children}
