@@ -1,6 +1,4 @@
 import { useMenuToggle } from '../../hooks'
-import {Link} from 'react-router-dom'
-import {HOME} from '../../routing/paths'
 import './navbar.css'
 
 export const Navbar = () => {
@@ -21,9 +19,9 @@ export const Navbar = () => {
             </div>
             <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isShowMenu ? "navbar-toggle" : null}`} id="navbar">
                 <div className="text-sm lg:flex-grow  text-center lg:text-right text-white ">
-                    <Link to={HOME} className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
+                    <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
                         Home
-                    </Link>
+                    </a>
                     <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
                         About Us
                     </a>
