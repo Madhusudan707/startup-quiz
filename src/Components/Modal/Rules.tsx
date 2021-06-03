@@ -1,9 +1,12 @@
 import "./modal.css";
 import { Close } from "..";
-
+import {useNavigate} from "react-router-dom"
 
 export const Rules = () => {
-
+  const navigate=useNavigate()
+const startQuiz=()=>{
+  navigate('/quiz')
+}
   return (
     <>
       <div
@@ -30,7 +33,7 @@ export const Rules = () => {
                 <div className="flex flex-col items-center justify-center mt-4">
                   <button
                     className="bg-gray-100 lg:p-4 p-3  lg:text-3xl text-2xl text-green-500 rounded-full shadow-lg focus:outline-none hover:bg-green-500 hover:text-white"
-                   
+                   onClick = {startQuiz}
                   >
                     Start Quiz
                   </button>
