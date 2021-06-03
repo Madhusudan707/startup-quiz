@@ -1,6 +1,6 @@
-export {Navbar} from './Navbar/Navbar'
-export {QuizCard} from './QuizCard/QuizCard'
-export {Heading} from './Heading/Heading'
-export {Rules} from './Modal/Rules'
-export {Close} from './Modal/Close'
-export {Loader} from './Loader/Loader'
+export { Navbar } from "./Navbar/Navbar";
+export { QuizCard } from "./QuizCard/QuizCard";
+export { Heading } from "./Heading/Heading";
+export { Rules } from "./Modal/Rules";
+export { Close } from "./Modal/Close";
+export { Loader } from "./Loader/Loader";

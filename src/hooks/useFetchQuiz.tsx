@@ -6,6 +6,8 @@ export const useFetchQuiz = () => {
   const { state, dispatch } = useQuiz()
   const [loader, setLoader] = useState(true);
   const [quizInfo, setQuizInfo] = useState<any>()
+  
+
 
   useEffect(() => {
     (async () => {
@@ -38,5 +40,13 @@ export const useFetchQuiz = () => {
     }
   }, [state])
 
-  return { loader, quizInfo }
+  const setQuiz = (quiz_id: any) => {
+    const newQuiz = state.quiz.filter((quiz: any) => {
+      localStorage.setItem("quizID", quiz_id);
+      return quiz._id === quiz_id;
+    });
+   
+    localStorage.setItem("newQuiz", JSON.stringify(newQuiz[0].quiz));
+  };
+  return { loader, quizInfo, setQuiz}
 }

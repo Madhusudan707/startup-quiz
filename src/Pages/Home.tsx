@@ -2,7 +2,7 @@ import { Heading, QuizCard, Rules, Loader } from '../Components'
 import { useFetchQuiz } from '../hooks'
 export const Home = () => {
 
-    const { loader, quizInfo } = useFetchQuiz()
+    const { loader, quizInfo,setQuiz } = useFetchQuiz()
     return (
         <div className="flex flex-col mt-32 ">
             {
@@ -10,7 +10,7 @@ export const Home = () => {
                     :
                     <>
                         <Heading />
-                        <QuizCard quizInfo={quizInfo} />
+                        <QuizCard quizInfo={quizInfo} setQuiz={setQuiz} />
                         <Rules />
                     </>
             }
