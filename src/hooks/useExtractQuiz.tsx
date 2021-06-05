@@ -12,8 +12,6 @@ export const useExtractQuiz = () => {
 
             const parseNewQuiz = JSON.parse(newQuiz)
             setQuestionAnswer(parseNewQuiz[0].questions);
-            parseNewQuiz[0].questions.map((question: any) => {
-            })
         }
         //eslint-disable-next-line
     }, []);

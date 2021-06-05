@@ -18,12 +18,6 @@ export const useResponseRecord = () => {
     localStorage.setItem("totalPoints", JSON.stringify(point));
   }, [point]);
 
-
-  // useEffect(() => {
-  //   if (!quizID) {
-  //     quizID= localStorage.getItem("quizID");
-  //   }
-  // },[]);
   const responseRecord = async (response:any, qid:number, lastResponse:string) => {
     try {
       const responseAnswer = await axios.get(

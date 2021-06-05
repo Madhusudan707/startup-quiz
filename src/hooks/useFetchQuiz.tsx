@@ -19,6 +19,7 @@ export const useFetchQuiz = () => {
         setLoader(true);
       }
     })();
+    //eslint-disable-next-line
   }, []);
 
   useEffect(() => {
