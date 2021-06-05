@@ -4,3 +4,4 @@ export { Heading } from "./Heading/Heading";
 export { Rules } from "./Modal/Rules";
 export { Close } from "./Modal/Close";
 export { Loader } from "./Loader/Loader";
+export {ScoreCard} from "./ScoreCard/ScoreCard"

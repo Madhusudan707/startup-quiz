@@ -3,3 +3,4 @@ export { useFetchQuiz } from "./useFetchQuiz";
 export { useExtractQuiz } from "./useExtractQuiz";
 export { useQuestionSwitch } from "./useQuestionSwitch";
 export {useResponseRecord} from "./useResponseRecord"
+export {usePathName} from './usePathName'

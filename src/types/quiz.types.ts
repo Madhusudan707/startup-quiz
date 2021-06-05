@@ -54,7 +54,8 @@ export type QuizProviderProp = {
 export type Response = {
   qid: number | any;
   ans: number;
-  isRight: "TRUE" | "FALSE" | "";
+  // isRight: "TRUE" | "FALSE" | "";
+  isRight:boolean | string
   answer: string;
 };
 
@@ -85,3 +86,17 @@ export type ResponseContextType = {
 export type ResponseProviderProp = {
   children: JSX.Element;
 };
+
+
+//For result page
+
+export type Question={
+  id: number;
+  question: string;
+  options: [] | any;
+  point: number;
+  isNegative: boolean;
+  isBonus: boolean;
+  imageUrl: string;
+}
+
