@@ -31,6 +31,7 @@ export type SetQuiz = {
   loading: boolean;
   message: string;
 };
+
 export type QuizActionType =
   | {
       type: "LOAD_QUIZ";
@@ -47,5 +48,40 @@ export type QuizContextType = {
 };
 
 export type QuizProviderProp = {
+  children: JSX.Element;
+};
+
+export type Response = {
+  qid: number | any;
+  ans: number;
+  isRight: "TRUE" | "FALSE" | "";
+  answer: string;
+};
+
+export type SetResponse = {
+  response: Response[];
+  loading: boolean;
+  message: string;
+};
+
+export type ResponseActionType =
+  | {
+      type: "RESPONSE_RECORD";
+      payload: { response: Response };
+    }
+  | {
+      type: "ON_FAILURE";
+    };
+
+export type ResponseContextType = {
+  responseState: SetResponse;
+  responseDispatch: Dispatch<ResponseActionType>;
+  response:Response[];
+  setResponse:React.Dispatch<React.SetStateAction<Response[]>>
+  point:number;
+  setPoint:React.Dispatch<React.SetStateAction<number>>
+};
+
+export type ResponseProviderProp = {
   children: JSX.Element;
 };

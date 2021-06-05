@@ -1,12 +1,13 @@
-
-import { useExtractQuiz, useQuestionSwitch } from '../hooks'
+import { useResponse } from "../contexts"
+import { useExtractQuiz, useQuestionSwitch, useResponseRecord } from '../hooks'
 
 export const Quiz = () => {
 
     const { questionAnswer } = useExtractQuiz();
-    const { questionSwitch, isPrev, isNext, isFinish, prev, next } =
-        useQuestionSwitch();
-    console.log(questionAnswer)
+    const { questionSwitch, isPrev, isNext, isFinish, prev, next } = useQuestionSwitch();
+    const { responseRecord } = useResponseRecord()
+    const { response, setResponse } = useResponse()
+
     return (
         <div className="flex mt-24  w-full ">
             <div className='flex flex-row items-center justify-center w-full  '>
@@ -21,22 +22,38 @@ export const Quiz = () => {
                                 <div className=' m-4 p-4 bg-gray-100'>
                                     <div>
                                         <span>1. </span>
-                                        <input className="ml-2" type='radio' name='option' />
+                                        <input className="ml-2" type='radio' name='option' onChange={() => {
+                                            setResponse([
+                                                { qid: -1, ans: 2, isRight: "", answer: "" },
+                                            ]);
+                                        }} />
                                         <label className="ml-2">{question.options[0]}</label>
                                     </div>
                                     <div>
                                         <span>2. </span>
-                                        <input className="ml-2" type='radio' name='option' />
+                                        <input className="ml-2" type='radio' name='option' onChange={() => {
+                                            setResponse([
+                                                { qid: -1, ans: 2, isRight: "", answer: "" },
+                                            ]);
+                                        }} />
                                         <label className="ml-2">{question.options[1]}</label>
                                     </div>
                                     <div>
                                         <span>3. </span>
-                                        <input className="ml-2" type='radio' name='option' />
+                                        <input className="ml-2" type='radio' name='option' onChange={() => {
+                                            setResponse([
+                                                { qid: -1, ans: 2, isRight: "", answer: "" },
+                                            ]);
+                                        }} />
                                         <label className="ml-2">{question.options[2]}</label>
                                     </div>
                                     <div>
                                         <span >4. </span>
-                                        <input className="ml-2" type='radio' name='option' />
+                                        <input className="ml-2" type='radio' name='option' onChange={() => {
+                                            setResponse([
+                                                { qid: -1, ans: 2, isRight: "", answer: "" },
+                                            ]);
+                                        }} />
                                         <label className="ml-2">{question.options[3]}</label>
                                     </div>
                                 </div>
@@ -45,11 +62,14 @@ export const Quiz = () => {
                                         }`}
                                         onClick={() => {
                                             questionSwitch("next", questionAnswer.length);
+                                            responseRecord(response,question.id,"")
 
                                         }}>Next</button>
 
                                     <button className={`w-72 rounded-full bg-gray-100 lg:p-4 p-3  lg:text-3xl text-2xl text-green-500 shadow-lg focus:outline-none hover:bg-green-500 hover:text-white ${isFinish ? "" : "hidden"
-                                        }`}>Finish</button>
+                                        }`}  onClick={() => {
+                                            responseRecord(response, question.id, "finish")
+                                          }}>Finish</button>
                                 </div>
 
                             </div>
