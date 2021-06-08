@@ -1,12 +1,14 @@
 import { useMenuToggle } from '../../hooks'
 import {Link} from 'react-router-dom'
 import {HOME} from '../../routing/paths'
+import {Login} from '../'
 import './navbar.css'
 
 export const Navbar = () => {
 
     const { menuToggleHandler, isShowMenu } = useMenuToggle()
     return (
+        <>
         <nav className="flex items-center justify-between flex-wrap bg-gradient-to-r from-green-400  to-green-700 p-6 fixed w-full top-0 ">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
                 <span className="font-semibold tracking-tight text-4xl">Startup-Quiz</span>
@@ -33,9 +35,11 @@ export const Navbar = () => {
                     <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black text-lg">
                         Contact US
                     </a>
-                    <a href="#!" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-black hover:bg-white mt-4 lg:mt-0 ml-3">Login/Register</a>
+                    <a href="#login" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-black hover:bg-white mt-4 lg:mt-0 ml-3">Login/Register</a>
                 </div>
             </div>
         </nav>
+        <Login/>
+        </>
     );
 };

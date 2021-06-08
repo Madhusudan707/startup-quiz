@@ -24,7 +24,7 @@ export const Quiz = () => {
                                         <span>1. </span>
                                         <input className="ml-2" type='radio' name='option' onChange={() => {
                                             setResponse([
-                                                { qid: -1, ans: 0, isRight: "", answer: "" },
+                                                { qid: -1, ans: 0, isRight: "", answer: "" }
                                             ]);
                                         }} />
                                         <label className="ml-2">{question.options[0]}</label>
@@ -33,7 +33,7 @@ export const Quiz = () => {
                                         <span>2. </span>
                                         <input className="ml-2" type='radio' name='option' onChange={() => {
                                             setResponse([
-                                                { qid: -1, ans: 1, isRight: "", answer: "" },
+                                                { qid: -1, ans: 1, isRight: "", answer: "" }
                                             ]);
                                         }} />
                                         <label className="ml-2">{question.options[1]}</label>
@@ -42,7 +42,7 @@ export const Quiz = () => {
                                         <span>3. </span>
                                         <input className="ml-2" type='radio' name='option' onChange={() => {
                                             setResponse([
-                                                { qid: -1, ans: 2, isRight: "", answer: "" },
+                                                { qid: -1, ans: 2, isRight: "", answer: "" }
                                             ]);
                                         }} />
                                         <label className="ml-2">{question.options[2]}</label>
@@ -51,7 +51,7 @@ export const Quiz = () => {
                                         <span >4. </span>
                                         <input className="ml-2" type='radio' name='option' onChange={() => {
                                             setResponse([
-                                                { qid: -1, ans: 3, isRight: "", answer: "" },
+                                                { qid: -1, ans: 3, isRight: "", answer: "" }
                                             ]);
                                         }} />
                                         <label className="ml-2">{question.options[3]}</label>

@@ -4,3 +4,5 @@ export { useExtractQuiz } from "./useExtractQuiz";
 export { useQuestionSwitch } from "./useQuestionSwitch";
 export {useResponseRecord} from "./useResponseRecord"
 export {usePathName} from './usePathName'
+export {useRegister} from './useRegister'
+export {useLogin} from './useLogin'

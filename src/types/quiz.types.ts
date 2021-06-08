@@ -100,3 +100,17 @@ export type Question={
   imageUrl: string;
 }
 
+
+export type Values = {
+    name:string;
+    email:string;
+    password:any;
+    cpassword:any;
+}
+
+export type Errors={
+  name:string;
+  email:string;
+  password:any
+  cpassword:any;
+}

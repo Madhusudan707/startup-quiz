@@ -1,4 +1,4 @@
-import { Heading, QuizCard, Rules, Loader } from '../Components'
+import { Heading, QuizCard, Rules,Loader } from '../Components'
 import { useFetchQuiz } from '../hooks'
 export const Home = () => {
 
@@ -12,6 +12,7 @@ export const Home = () => {
                         <Heading />
                         <QuizCard quizInfo={quizInfo} setQuiz={setQuiz} />
                         <Rules />
+                       
                     </>
             }
         </div>
