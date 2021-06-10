@@ -1,20 +1,28 @@
-import { Heading, QuizCard, Rules,Loader } from '../Components'
-import { useFetchQuiz } from '../hooks'
-export const Home = () => {
+import {useEffect} from 'react'
+import { Heading, Features } from '../Components'
+import {useUser} from '../contexts'
+import {useNavigate} from 'react-router-dom'
 
-    const { loader, quizInfo,setQuiz } = useFetchQuiz()
+export const Home = () => {
+    const { isUserLoggedIn,setIsUserLoggedIn } = useUser()
+    const navigate = useNavigate()
+    useEffect(()=>{
+        if(!isUserLoggedIn){
+            const loginData:any = localStorage.getItem("login")
+            const login:any=JSON.parse(loginData)
+            setIsUserLoggedIn(login.isUserLoggedIn)
+
+            if(login.isUserLoggedIn){
+                navigate('/arena')
+            }
+        }
+    },[])
     return (
         <div className="flex flex-col mt-32 ">
-            {
-                loader ? <Loader />
-                    :
-                    <>
-                        <Heading />
-                        <QuizCard quizInfo={quizInfo} setQuiz={setQuiz} />
-                        <Rules />
-                       
-                    </>
-            }
+            <>
+                <Heading />
+                <Features />
+            </>
         </div>
     )
 }

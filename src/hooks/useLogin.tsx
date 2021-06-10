@@ -12,7 +12,6 @@ export const useLogin = () => {
 
     useEffect(() => {
         if (responseAPI?.success) {
-            console.log(responseAPI)
             setIsUserLoggedIn(true)
             setUserLoading(true)
             userDispatch({ type: "SET_USER_LOGIN_AND_DATA", payload: { userData: responseAPI.user } })
@@ -21,7 +20,7 @@ export const useLogin = () => {
                 "login",
                 JSON.stringify({ isUserLoggedIn: true, token: responseAPI.user.token })
             );
-            navigate('/')
+            navigate('/arena')
         }
         // eslint-disable-next-line
     }, [responseAPI])

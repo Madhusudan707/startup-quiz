@@ -7,4 +7,5 @@ export { Loader } from "./Loader/Loader";
 export {ScoreCard} from "./ScoreCard/ScoreCard"
 export {Login} from './Modal/Login'
 export {Register} from './Modal/Register'
+export {Features} from './Features/Features'
 
