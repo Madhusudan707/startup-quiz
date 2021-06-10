@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { QuizProvider, ResponseProvider } from './contexts'
+import { QuizProvider, ResponseProvider,UserProvider } from './contexts'
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 
@@ -11,7 +11,9 @@ ReactDOM.render(
     <Router>
       <QuizProvider>
         <ResponseProvider>
+          <UserProvider>
           <App />
+          </UserProvider>
         </ResponseProvider>
       </QuizProvider>
     </Router>
