@@ -18,7 +18,7 @@ export const useAxios = (axiosParams:any)=>{
         const localDomain = "http://localhost:"
         const port = "5000"
         const local = `${localDomain}${port}/user/`
-        const remote = "https://startup-reads-backend.maddydev.repl.co/"
+        const remote = ""
 
         axios.defaults.baseURL = host === "localhost"?local:remote
 

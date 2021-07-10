@@ -1,41 +1,11 @@
 
-import {useExtractQuiz} from '../../hooks'
-import {useState,useEffect} from 'react'
-import {Response} from '../../types/quiz.types'
+// import {useScoreCard} from '../../hooks'
+import {useScore} from '../../contexts'
 export const ScoreCard = () => {
-    const { allResponse } = useExtractQuiz();
-    const [totalQuestion,setTotalQuestion] = useState(0)
-    const [attempted,setAttempted] = useState(0)
-    const [skipped,setSkipped] = useState(0)
-    const [totalRight,setTotalRight] = useState(0)
-    const [totalWrong,setTotalWrong] = useState(0)
     const quizName:any = localStorage.getItem("newQuiz")
     const parseQuiz = JSON.parse(quizName)
-    useEffect(()=>{
-        setTotalQuestion(allResponse.length)
-        const skip:any = allResponse.filter((response:Response)=>{
-            return  response.qid===-1
-        })
+    const { totalQuestion,attempted,skipped,totalRight,totalWrong} = useScore()
 
-        const attempt:any = allResponse.filter((response:Response)=>{
-            return  response.qid>0
-        })
-
-        const right:any = allResponse.filter((response:Response)=>{
-            return  response.isRight===true
-        })
-
-        const wrong:any = allResponse.filter((response:Response)=>{
-            return  response.isRight===false
-        })
-
-        setSkipped(skip.length)
-        setAttempted(attempt.length)
-        setTotalRight(right.length)
-        setTotalWrong(wrong.length)
-    },[allResponse])
-
-   
     return (
         <div className='flex flex-row w-full items-center justify-center'>
             <div className='flex flex-col w-72  border  mt-36 '>

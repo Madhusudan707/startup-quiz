@@ -1,5 +1,5 @@
-import { useResponse } from "../contexts"
-import { useExtractQuiz, useQuestionSwitch, useResponseRecord } from '../hooks'
+import { useResponse, useScore } from "../contexts"
+import { useExtractQuiz, useQuestionSwitch, useResponseRecord,useScoreCard } from '../hooks'
 
 export const Quiz = () => {
 
@@ -7,6 +7,7 @@ export const Quiz = () => {
     const { questionSwitch, isNext, isFinish, prev, next } = useQuestionSwitch();
     const { responseRecord } = useResponseRecord()
     const { response, setResponse } = useResponse()
+    const {saveScore} = useScoreCard()
 
     return (
         <div className="flex mt-24  w-full ">
@@ -68,7 +69,9 @@ export const Quiz = () => {
 
                                     <button className={`w-72 rounded-full bg-gray-100 lg:p-4 p-3  lg:text-3xl text-2xl text-green-500 shadow-lg focus:outline-none hover:bg-green-500 hover:text-white ${isFinish ? "" : "hidden"
                                         }`} onClick={() => {
-                                            responseRecord(response, question.id, "finish")
+                                            responseRecord(response, question.id, "finish");
+                                            saveScore("")
+                                           
                                         }}>Finish</button>
                                 </div>
 

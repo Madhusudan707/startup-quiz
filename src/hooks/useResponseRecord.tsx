@@ -1,12 +1,15 @@
 import { useEffect } from "react";
-import { useResponse} from "../contexts";
+import { useResponse,useUser,useScore} from "../contexts";
 import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 export const useResponseRecord = () => {
   const { setResponse, responseDispatch, responseState, point, setPoint } =
     useResponse();
-  let quizID= localStorage.getItem("quizID");
+  const {attempted,skipped,totalRight,totalWrong} = useScore()
+    const {userState} = useUser()
+  const quizID= localStorage.getItem("quizID");
   const navigate = useNavigate();
   let fullResponse;
 
@@ -47,6 +50,23 @@ export const useResponseRecord = () => {
     if (lastResponse === "finish") {
       // localStorage.setItem("fullResponse", JSON.stringify(responseState));
       setResponse([{ qid: -1, ans: -1, isRight: "", answer: "" }]);
+      // try{
+      //       const response = await axios.post("http://localhost:5000/score",{
+      //         quiz:quizID,
+      //         user:userState.userData._id,
+      //         score:[{
+      //           attempted: attempted,
+      //           skipped: skipped,
+      //           right: totalRight,
+      //           wrong: totalWrong,
+      //           negativePoint:-2,
+      //           postivePoint:5,
+      //         }]
+      //       })
+      // }catch(err){
+      //   console.log(`${err}: Unable to save Scorecard`)
+      // }
+
       navigate("/result");
     }
   };

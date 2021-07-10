@@ -1,3 +1,4 @@
-export {useQuiz,QuizProvider} from './QuizContext'
-export {useResponse,ResponseProvider} from './ResponseContext'
-export {useUser,UserProvider} from './userContext'
+export {useQuiz,QuizProvider} from './quiz-context'
+export {useResponse,ResponseProvider} from './response-context'
+export {useUser,UserProvider} from './user-context'
+export {useScore,ScoreCardProvider} from './scorecard-context'
