@@ -17,7 +17,7 @@ export const useAxios = (axiosParams:any)=>{
         const host = window.location.hostname;
         const localDomain = "http://localhost:"
         const port = "5000"
-        const local = `${localDomain}${port}/user/`
+        const local = `${localDomain}${port}`
         const remote = "https://startup-quiz-backend.madhusudandas.repl.co"
         console.log(host)
         axios.defaults.baseURL = host === "localhost"?local:remote

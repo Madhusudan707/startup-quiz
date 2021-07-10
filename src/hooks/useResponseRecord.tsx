@@ -24,7 +24,7 @@ export const useResponseRecord = () => {
   const responseRecord = async (response:any, qid:number, lastResponse:string) => {
     try {
       const responseAnswer = await axios.get(
-        `http://localhost:5000/answer/${quizID}/${qid}/${response[0].ans}`
+        `/answer/${quizID}/${qid}/${response[0].ans}`
       );
       if (responseAnswer.data.success) {
         fullResponse = {

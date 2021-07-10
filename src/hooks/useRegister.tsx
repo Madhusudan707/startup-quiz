@@ -30,7 +30,7 @@ export const useRegister = (validate: any) => {
 
                 const params = {
                     method: 'post',
-                    url: '/register',
+                    url: '/user/register',
                     data: data
                 }
 

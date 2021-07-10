@@ -69,7 +69,7 @@ export const useScoreCard = ()=>{
             console.log("user-id",userState.userData._id)
             console.log(success)
             if(success){
-                const response = await axios.post("http://localhost:5000/score",{
+                const response = await axios.post("/score",{
                     quiz:quizID,
                     user:userState.userData._id,
                     score:[{

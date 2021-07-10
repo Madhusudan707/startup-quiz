@@ -33,7 +33,7 @@ export const useLogin = () => {
 
         const params = {
             method: 'post',
-            url: '/login',
+            url: '/user/login',
             data: data
         }
         fetchData(params)

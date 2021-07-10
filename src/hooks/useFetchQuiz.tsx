@@ -11,7 +11,7 @@ export const useFetchQuiz = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get("http://localhost:5000/quiz");
+      const response = await axios.get("/quiz");
       console.log(response)
       if (response.data.success === true) {
         dispatch({ type: "LOAD_QUIZ", payload: { quiz: response.data.quiz } })
