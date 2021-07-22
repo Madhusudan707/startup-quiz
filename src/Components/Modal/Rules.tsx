@@ -24,7 +24,7 @@ export const Rules = () => {
                   <li>Each question carries 5 marks.</li>
                   <li> +5 for right answer and -2 for wrong answer.</li>
                   <li>Question are of Multiple Choice.</li>
-                  <li>Time for Each question is 30 Seconds.</li>
+                  {/* <li>Time for Each question is 30 Seconds.</li> */}
                   <li>
                     You can skip the question, if you don't want to answer.
                   </li>

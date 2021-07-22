@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useResponse,useUser,useScore} from "../contexts";
+import { useResponse} from "../contexts";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -7,8 +7,8 @@ import axios from "axios";
 export const useResponseRecord = () => {
   const { setResponse, responseDispatch, responseState, point, setPoint } =
     useResponse();
-  const {attempted,skipped,totalRight,totalWrong} = useScore()
-    const {userState} = useUser()
+  // const {attempted,skipped,totalRight,totalWrong} = useScore()
+    // const {userState} = useUser()
   const quizID= localStorage.getItem("quizID");
   const navigate = useNavigate();
   let fullResponse;

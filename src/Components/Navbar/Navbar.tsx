@@ -1,6 +1,5 @@
 import { useMenuToggle } from '../../hooks'
 import { Link } from 'react-router-dom'
-import { HOME } from '../../routing/paths'
 import { useUser } from '../../contexts'
 import { Login } from '../'
 import './navbar.css'
@@ -14,6 +13,7 @@ export const Navbar = () => {
         setIsUserLoggedIn(false)
         localStorage.removeItem('login')
     }
+    
     return (
         <>
             <nav className="flex items-center justify-between flex-wrap bg-gradient-to-r from-green-400  to-green-700 p-6 fixed w-full top-0 ">
@@ -30,10 +30,20 @@ export const Navbar = () => {
                 </div>
                 <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isShowMenu ? "navbar-toggle" : null}`} id="navbar">
                     <div className="text-sm lg:flex-grow  text-center lg:text-right text-white ">
-                        <Link to={HOME} className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
-                            Home
+                    <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
+                        Home
                     </Link>
-                        <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
+                    <Link to="/arena" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
+                        Arena
+                    </Link>
+                    {/* <Link to="/quiz" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
+                        Quiz
+                    </Link> */}
+                   
+                    {/* <Link to="/result"className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
+                        Result
+                    </Link> */}
+                        {/* <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
                             About Us
                     </a>
                         <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black mr-4 text-lg">
@@ -41,7 +51,7 @@ export const Navbar = () => {
                     </a>
                         <a href="#responsive-header" className="block mt-4 lg:inline-block lg:mt-0 text-teal-100 hover:text-black text-lg">
                             Contact US
-                    </a>
+                    </a> */}
                         {
                             isUserLoggedIn
                                 ?

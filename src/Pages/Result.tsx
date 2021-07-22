@@ -1,12 +1,68 @@
+
 import {useExtractQuiz} from "../hooks"
 import {Question,Response} from '../types/quiz.types'
-import {ScoreCard} from '../Components'
+import {useScore} from '../contexts'
+import './result.css'
 export const Result = () => {
     const { questionAnswer,allResponse } = useExtractQuiz();
-  
-    return (
-        <>
-        <ScoreCard/>
+    const { attempted,skipped,totalRight,totalWrong} = useScore()
+    return  (
+      <>
+        
+
+        <div className='flex flex-col justify-center items-center mt-36 w-full '>
+         
+          <div className='flex flex-col shadow-md p-4'>
+            <h1 className='flex justify-center items-center text-3xl mb-4 border p-4'>SCORECARD</h1>
+            <table className='result-table'>
+              <tbody>
+        
+              {/* <tr>
+                  <td><span>Name</span></td>
+                  <td><p className='center'>Madhusudan Das</p></td>
+                </tr> */}
+                <tr>
+                  <td><span>Quiz</span></td>
+                  <td><p className='text-center'>Zero To One</p></td>
+                </tr>
+                <tr>
+                  <td><span>Total No. Questions</span></td>
+                  <td><p className='text-center'>{allResponse.length}</p></td>
+                </tr>
+              
+            </tbody>
+            </table>
+        
+            <table className='result-table border-t-4 mt-8'>
+              <tbody>
+                <tr>
+                  <td >Attempted</td>
+                  <td  > <p className='text-center'>{attempted}</p></td>
+                  <td><span>Point(<i className="far fa-check-circle text-green-600"></i>)</span></td>
+                  <td>{`5 * ${totalRight} = ${5*totalRight}`}</td>
+                </tr>
+                <tr>
+                  <td>Skipped</td>
+                  <td> <p className='text-center'>{skipped}</p></td>
+                  <td> <span>Point(<i className="far fa-times-circle text-red-600"></i>)</span></td>
+                  <td>{`2 * ${totalWrong} = ${2*(-totalWrong)}`}</td>
+                </tr>
+                <tr>
+                  <td>Right</td>
+                  <td><p className='text-center'>{totalRight}</p></td>
+                  <td> <span>Total</span></td>
+                  <td><span className="rounded-full h-12 w-12 text-white font-bold flex items-center justify-center bg-red-500">{`${5*totalRight- 2*(totalWrong)}`}</span></td>
+                </tr>
+                <tr>
+                  <td>Wrong</td>
+                  <td><p className='text-center'>{totalWrong}</p></td>
+                </tr>
+            </tbody>
+            </table>
+          </div>
+         
+        </div>
+
        <div
       id="result"
       className="

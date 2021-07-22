@@ -6,7 +6,7 @@ import { useUser } from "../contexts"
 export const useLogin = () => {
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
-    const { responseAPI, loading, error, fetchData } = useAxios({})
+    const { responseAPI,fetchData } = useAxios({})
     const { userDispatch, setIsUserLoggedIn, setUserLoading } = useUser()
     const navigate = useNavigate()
 

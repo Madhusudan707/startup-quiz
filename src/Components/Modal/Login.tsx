@@ -13,11 +13,11 @@ export const Login = () => {
                         <div className="social-login w-full text-center  p-4 ">
 
                             <div className="text-5xl text-green-500 flex justify-around  ">
-                                <a href="#otp">
-                                    <i className=" text-black  fas fa-mobile-alt self-end hover:text-gray-600" title={"Login With OTP"} ></i>
-                                </a>
-                                <button className="text-blue-500  fab fa-facebook-square hover:text-gray-600"></button>
-                                <button className=" text-red-500  fab fa-google hover:text-gray-600"></button>
+                                <span>
+                                    <i className=" text-black  fas fa-mobile-alt self-end hover:text-gray-600 cursor-not-allowed" title={"Login With OTP"} ></i>
+                                </span>
+                                <button className="text-blue-500  fab fa-facebook-square hover:text-gray-600 cursor-not-allowed"></button>
+                                <button className=" text-red-500  fab fa-google hover:text-gray-600 cursor-not-allowed"></button>
                             </div>
                         </div>
                         <form className="mb-4" onSubmit={loginUser}>

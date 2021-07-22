@@ -19,7 +19,6 @@ export const useAxios = (axiosParams:any)=>{
         const port = "5000"
         const local = `${localDomain}${port}`
         const remote = "https://startup-quiz-backend.madhusudandas.repl.co"
-        console.log(host)
         axios.defaults.baseURL = host === "localhost"?local:remote
 
         const [responseAPI,setResponseAPI] = useState<Response | null>(null)
@@ -35,8 +34,10 @@ export const useAxios = (axiosParams:any)=>{
             try{
                 const response:any = await axios.request(params)
               if(response.data.success){
+                  
                 setAxiosAuthHeader(response.data.user.token);
                 setResponseAPI(response.data)
+               
               }
             }catch(error){
                 setError(error)

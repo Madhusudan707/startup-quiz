@@ -1,6 +1,6 @@
-export const Close = ({ nameClass }: any) => {
+export const Close = ({ nameClass,closeRef }: any) => {
   return (
-    <a href="#close" id='modal_close' title="Close">
+    <a ref ={closeRef} href="#close" id='modal_close' title="Close">
       <span className={nameClass}>
         <i className="fas fa-times"></i>
       </span>

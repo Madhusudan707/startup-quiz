@@ -1,10 +1,14 @@
 
 // import {useScoreCard} from '../../hooks'
+
 import {useScore} from '../../contexts'
+
 export const ScoreCard = () => {
     const quizName:any = localStorage.getItem("newQuiz")
     const parseQuiz = JSON.parse(quizName)
     const { totalQuestion,attempted,skipped,totalRight,totalWrong} = useScore()
+  
+  
 
     return (
         <div className='flex flex-row w-full items-center justify-center'>

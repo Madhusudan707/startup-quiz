@@ -1,16 +1,19 @@
+import { useRef } from 'react'
 import { Close } from '../'
 import { useRegister } from '../../hooks'
 import { validate } from '../../utilis/inputValidation'
 
 export const Register = () => {
-
-    const { errors, values, registerUser, handleChange } = useRegister(validate)
-
+    const closeRef = useRef(null)
+    const { errors, values, registerUser, handleChange } = useRegister(validate,closeRef)
+   
+    
+    
     return (
         <>
             <div id="register" className="modal w-full flex flex-col items-center justify-center">
                 <div className="flex items-center h-screen w-full relative">
-                    <Close nameClass="text-black hover:text-red-500 text-3xl absolute top-36 right-40 " />
+                    <Close closeRef={closeRef} nameClass="text-black hover:text-red-500 text-3xl absolute top-36 right-40 "  />
                     <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto ">
                         <span className="block w-full text-xl uppercase font-bold text-center border-b-4 mb-8 mt-8">Register</span>
                         <form className="mb-4 " onSubmit={registerUser}>

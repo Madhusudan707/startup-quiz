@@ -1,4 +1,4 @@
-import { useResponse, useScore } from "../contexts"
+import { useResponse} from "../contexts"
 import { useExtractQuiz, useQuestionSwitch, useResponseRecord,useScoreCard } from '../hooks'
 
 export const Quiz = () => {
