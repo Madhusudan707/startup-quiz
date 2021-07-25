@@ -1,16 +1,19 @@
 import { useEffect, useState } from 'react'
 import { useQuiz } from '../contexts'
+import {useScore} from '../contexts'
 import axios from 'axios'
 
 export const useFetchQuiz = () => {
   const { state, dispatch } = useQuiz()
   const [loader, setLoader] = useState(true);
   const [quizInfo, setQuizInfo] = useState<any>()
+  const {setAttempted,setSkipped,setTotalRight,setTotalWrong} = useScore()
   
 
 
   useEffect(() => {
     (async () => {
+     
       const response = await axios.get("/quiz");
       if (response.data.success === true) {
         dispatch({ type: "LOAD_QUIZ", payload: { quiz: response.data.quiz } })
@@ -18,6 +21,12 @@ export const useFetchQuiz = () => {
       } else {
         setLoader(true);
       }
+
+      setAttempted(0)
+      setSkipped(0)
+      setTotalRight(0)
+      setTotalWrong(0)
+    
     })();
     //eslint-disable-next-line
   }, []);
